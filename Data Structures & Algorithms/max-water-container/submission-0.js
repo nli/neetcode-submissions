@@ -1,0 +1,17 @@
+class Solution {
+    /**
+     * @param {number[]} heights
+     * @return {number}
+     */
+    maxArea(heights) {
+        let l=0, r=heights.length-1
+        let max = 0
+        while (l<r) {
+            const left = heights[l], right = heights[r]
+            max = Math.max(max, Math.min(left, right)*(r-l))
+            if (left < right) l++
+            else r--
+        }
+        return max;
+    }
+}
